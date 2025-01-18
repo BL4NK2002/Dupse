@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rescate Animal</title>
+  <link rel="stylesheet" href="voluntario-list.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo de Rescate Animal">
+    </div>
+    <nav>
+      <a routerLink="/">Menu Principal</a>
+      <a routerLink="/quienes-somos">Quiénes Somos</a>
+      <a routerLink="/aliados">Aliados</a>
+      <a routerLink="/eventos">Proximos eventos</a>
+      <a routerLink="/contactanos">Contactanos</a>
+      <a href="/voluntarios">voluntarios</a>
+
+      <script>
+        // Función para filtrar voluntarios
+        function filtrarVoluntarios() {
+          const input = document.getElementById("buscar").value.toLowerCase();
+          const filas = document.querySelectorAll(".table tbody tr");
+    
+          filas.forEach(fila => {
+            const textoFila = fila.textContent.toLowerCase();
+            fila.style.display = textoFila.includes(input) ? "" : "none";
+          });
+        }
+      </script>
+
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <h2>Listado de Voluntarios</h2>
+  
+      <!-- Campo de búsqueda -->
+      <input 
+        type="text" 
+        [(ngModel)]="searchText" 
+        (input)="filtrarVoluntarios()" 
+        placeholder="Ingresa tu DNI" 
+        style="width: 100%; padding: 10px; margin-bottom: 20px; font-size: 16px;"
+      />
+  
+      <!-- Tabla de voluntarios -->
+      <table class="table" *ngIf="voluntariosFiltrados.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Distrito</th>
+            <th>Cumpleaños</th>
+            <th>DNI</th>
+            <th>Email</th>
+            <th>Horas</th>
+            <th>Discord ID</th>
+            <th>Rol</th>
+            <th>Faltas</th>
+            <th>Cód. Certificados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let v of voluntariosFiltrados">
+            <td>{{v.id}}</td>
+            <td>{{v.nombre}}</td>
+            <td>{{v.apellido}}</td>
+            <td>{{v.edad}}</td>
+            <td>{{v.distrito}}</td>
+            <td>{{v.fechaNacimiento}}</td>
+            <td>{{v.dni}}</td>
+            <td>{{v.email}}</td>
+            <td>{{v.horas}}</td>
+            <td>{{v.discordId}}</td>
+            <td>{{v.cargo}}</td>
+            <td>{{v.falta}}</td>
+            <td>{{v.codigosCertificados}}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <!-- Mensaje cuando no hay resultados -->
+      <p *ngIf="voluntariosFiltrados.length === 0 && searchText.length > 0">
+        No se encontraron resultados para el DNI ingresado.
+      </p>
+    </div>
+  </main>
+</body>
+</html>

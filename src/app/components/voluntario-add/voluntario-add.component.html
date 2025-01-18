@@ -1,0 +1,89 @@
+<div class="container">
+  <h2 class="mb-4">Nuevo Voluntario</h2>
+
+  <!-- Botón para regresar -->
+  <a class="btn btn-secondary mb-3" routerLink="/">Volver</a>
+
+  <!-- Formulario de creación de voluntario -->
+  <form (ngSubmit)="addVoluntario()">
+    <!-- Nombre -->
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input [(ngModel)]="nombre" type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre" required>
+    </div>
+
+    <!-- Apellido -->
+    <div class="mb-3">
+      <label for="apellido" class="form-label">Apellido</label>
+      <input [(ngModel)]="apellido" type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese el apellido" required>
+    </div>
+
+    <!-- Teléfono -->
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input [(ngModel)]="telefono" type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingrese el teléfono" required>
+    </div>
+
+    <!-- Edad -->
+    <div class="mb-3">
+      <label for="edad" class="form-label">Edad</label>
+      <input [(ngModel)]="edad" type="number" class="form-control" id="edad" name="edad" placeholder="Ingrese la edad" required>
+    </div>
+
+    <!-- Distrito -->
+    <div class="mb-3">
+      <label for="distrito" class="form-label">Distrito</label>
+      <input [(ngModel)]="distrito" type="text" class="form-control" id="distrito" name="distrito" placeholder="Ingrese el distrito" required>
+    </div>
+
+    <!-- Fecha de Nacimiento (No obligatorio) -->
+    <div class="mb-3">
+      <label for="fechaNacimiento" class="form-label">Cumpleaños</label>
+      <input [(ngModel)]="fechaNacimiento" type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento">
+    </div>
+
+    <!-- DNI -->
+    <div class="mb-3">
+      <label for="dni" class="form-label">DNI</label>
+      <input [(ngModel)]="dni" type="text" class="form-control" id="dni" name="dni" placeholder="Ingrese el DNI" required>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input [(ngModel)]="email" type="email" class="form-control" id="email" name="email" placeholder="Ingrese el correo electrónico" required>
+    </div>
+
+    <!-- Horas -->
+    <div class="mb-3">
+      <label for="horas" class="form-label">Horas</label>
+      <input [(ngModel)]="horas" type="number" class="form-control" id="horas" name="horas" placeholder="Ingrese las horas" required>
+    </div>
+
+    <!-- Discord ID -->
+    <div class="mb-3">
+      <label for="discordId" class="form-label">Discord ID</label>
+      <input [(ngModel)]="discordId" type="text" class="form-control" id="discordId" name="discordId" placeholder="Ingrese el Discord ID" required>
+    </div>
+
+    <!-- Cargo (Select con opciones) -->
+    <div class="mb-3">
+      <label for="cargo" class="form-label">Cargo</label>
+      <select [(ngModel)]="cargo" id="cargo" name="cargo" class="form-control" required>
+        <option value="" disabled selected>Seleccione un cargo</option>
+        <option value="Coordinador">Coordinador</option>
+        <option value="Líder">Líder</option>
+        <option value="Voluntario">Voluntario</option>
+      </select>
+    </div>
+
+    <!--faltas -->
+    <div class="mb-3">
+      <label for="falta" class="form-label">Faltas</label>
+      <input [(ngModel)]="falta" type="text" class="form-control" id="falta" name="falta" placeholder="numero de faltas" required>
+    </div>
+
+    <!-- Botón de envío -->
+    <button type="submit" class="btn btn-primary mt-3">Crear</button>
+  </form>
+</div>
